@@ -12,16 +12,7 @@ import 'messages/video_message.dart';
 import 'user.dart' show User;
 
 /// All possible message types.
-enum MessageType {
-  audio,
-  custom,
-  file,
-  image,
-  system,
-  text,
-  unsupported,
-  video
-}
+enum MessageType { audio, custom, file, image, system, text, unsupported, video }
 
 /// All possible statuses message can have.
 enum Status { delivered, error, seen, sending, sent }

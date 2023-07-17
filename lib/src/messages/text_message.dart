@@ -13,7 +13,7 @@ part 'text_message.g.dart';
 @immutable
 abstract class TextMessage extends Message {
   /// Creates a text message.
-  const TextMessage._({
+  TextMessage._({
     required super.author,
     super.createdAt,
     required super.id,
@@ -29,7 +29,7 @@ abstract class TextMessage extends Message {
     super.updatedAt,
   }) : super(type: type ?? MessageType.text);
 
-  const factory TextMessage({
+  factory TextMessage({
     required User author,
     int? createdAt,
     required String id,
@@ -46,8 +46,7 @@ abstract class TextMessage extends Message {
   }) = _TextMessage;
 
   /// Creates a text message from a map (decoded JSON).
-  factory TextMessage.fromJson(Map<String, dynamic> json) =>
-      _$TextMessageFromJson(json);
+  factory TextMessage.fromJson(Map<String, dynamic> json) => _$TextMessageFromJson(json);
 
   /// Creates a full text message from a partial one.
   factory TextMessage.fromPartial({
@@ -81,7 +80,7 @@ abstract class TextMessage extends Message {
   final PreviewData? previewData;
 
   /// User's message.
-  final String text;
+  String text;
 
   /// Equatable props.
   @override
@@ -123,7 +122,7 @@ abstract class TextMessage extends Message {
 
 /// A utility class to enable better copyWith.
 class _TextMessage extends TextMessage {
-  const _TextMessage({
+  _TextMessage({
     required super.author,
     super.createdAt,
     required super.id,
@@ -158,19 +157,12 @@ class _TextMessage extends TextMessage {
         author: author ?? this.author,
         createdAt: createdAt == _Unset ? this.createdAt : createdAt as int?,
         id: id ?? this.id,
-        metadata: metadata == _Unset
-            ? this.metadata
-            : metadata as Map<String, dynamic>?,
-        previewData: previewData == _Unset
-            ? this.previewData
-            : previewData as PreviewData?,
+        metadata: metadata == _Unset ? this.metadata : metadata as Map<String, dynamic>?,
+        previewData: previewData == _Unset ? this.previewData : previewData as PreviewData?,
         remoteId: remoteId == _Unset ? this.remoteId : remoteId as String?,
-        repliedMessage: repliedMessage == _Unset
-            ? this.repliedMessage
-            : repliedMessage as Message?,
+        repliedMessage: repliedMessage == _Unset ? this.repliedMessage : repliedMessage as Message?,
         roomId: roomId == _Unset ? this.roomId : roomId as String?,
-        showStatus:
-            showStatus == _Unset ? this.showStatus : showStatus as bool?,
+        showStatus: showStatus == _Unset ? this.showStatus : showStatus as bool?,
         status: status == _Unset ? this.status : status as Status?,
         text: text ?? this.text,
         updatedAt: updatedAt == _Unset ? this.updatedAt : updatedAt as int?,
